@@ -36,6 +36,17 @@ if "draws" not in st.session_state:
     st.session_state.index = 0
     st.session_state.history = []
 
+# --- Set page background colour ---
+page_bg = """
+<style>
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+}
+</style>
+"""
+st.markdown(page_bg, unsafe_allow_html=True)
+
+# --- Set page title ---
 st.title("主內團圓慶中秋 BINGO")
 
 # --- Layout with 4 columns ---
