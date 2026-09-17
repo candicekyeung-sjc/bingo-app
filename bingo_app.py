@@ -38,8 +38,8 @@ if "draws" not in st.session_state:
 
 st.title("主內團圓慶中秋 BINGO")
 
-# --- Layout with 3 columns ---
-col1, col2, col3 = st.columns([1,3,1])  # left, middle, right
+# --- Layout with 4 columns ---
+col1, col2, col3, col4 = st.columns([1,1,3,1])  # left, middle, right
 
 # Left column → History
 with col1:
@@ -64,7 +64,7 @@ with col2:
     if st.session_state.history:
         current_word = st.session_state.history[-1]
         st.markdown(
-            f"<h1 style='text-align:center; color:darkred; font-size:72px;'> {current_word} </h1>",
+            f"<h1 style='text-align:center; color:darkred; font-size:68px;'> {current_word} </h1>",
             unsafe_allow_html=True
         )
         img_path = words_with_images.get(current_word)
