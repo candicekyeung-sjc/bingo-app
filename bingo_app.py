@@ -45,7 +45,7 @@ col1, col2, col3, col4 = st.columns([1,1,3,1])  # left, middle, right
 with col1:
     st.subheader("History")
     st.markdown(
-        f"<p style='font-size:20px;'> {' → '.join(st.session_state.history)} </p>",
+        f"<p style='font-size:28px;'> {' → '.join(st.session_state.history)} </p>",
         unsafe_allow_html=True
     )
 
