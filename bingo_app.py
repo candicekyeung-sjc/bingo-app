@@ -74,10 +74,11 @@ with col3:
             except:
                 st.write("(所有圖案已經顯示 No image available)")
 
-# Right column → Reset button
-with col4:
-    if st.button("Reset Game"):
-        st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
-        st.session_state.index = 0
-        st.session_state.history = []
+# Right column → Blank
+# Reset button at the bottom
+
+if st.button("Reset Game"):
+    st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
+    st.session_state.index = 0
+    st.session_state.history = []
 
