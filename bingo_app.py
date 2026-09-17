@@ -49,19 +49,9 @@ with col1:
         unsafe_allow_html=True
     )
 
-# Middle column → Next Word button + Current word + image
+# Middle column → Current word + image
 with col3:
-    # Button first
-    if st.button("Next Word"):
-        if st.session_state.index < len(st.session_state.draws):
-            word = st.session_state.draws[st.session_state.index]
-            st.session_state.history.append(word)
-            st.session_state.index += 1
-        else:
-            st.session_state.history.append("🎉 所有圖案已經顯示 All words called!")
-
-    # Then show word + image
-    if st.session_state.history:
+   if st.session_state.history:
         current_word = st.session_state.history[-1]
         st.markdown(
             f"<h1 style='text-align:center; color:darkred; font-size:68px;'> {current_word} </h1>",
@@ -74,7 +64,16 @@ with col3:
             except:
                 st.write("(所有圖案已經顯示 No image available)")
 
-# Right column → Blank
+# Right column → Next Word button
+with col4:
+    if st.button("Next Word"):
+        if st.session_state.index < len(st.session_state.draws):
+            word = st.session_state.draws[st.session_state.index]
+            st.session_state.history.append(word)
+            st.session_state.index += 1
+        else:
+            st.session_state.history.append("🎉 所有圖案已經顯示 All words called!")
+
 # Reset button at the bottom
 
 if st.button("Reset Game"):
