@@ -38,16 +38,20 @@ if "draws" not in st.session_state:
 
 st.title("主內團圓慶中秋 BINGO")
 
-# --- Buttons side by side ---
-col1, col2 = st.columns(2)
+# --- Layout with 3 columns ---
+col1, col2, col3 = st.columns([1,3,1])  # left, middle, right
 
+# Left column → History
 with col1:
-    if st.button("Reset Game"):
-        st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
-        st.session_state.index = 0
-        st.session_state.history = []
+    st.subheader("History")
+    st.markdown(
+        f"<p style='font-size:20px;'> {' → '.join(st.session_state.history)} </p>",
+        unsafe_allow_html=True
+    )
 
+# Middle column → Next Word button + Current word + image
 with col2:
+    # Button first
     if st.button("Next Word"):
         if st.session_state.index < len(st.session_state.draws):
             word = st.session_state.draws[st.session_state.index]
@@ -56,31 +60,24 @@ with col2:
         else:
             st.session_state.history.append("🎉 所有圖案已經顯示 All words called!")
 
-# --- Display current word ---
-if st.session_state.history:
-    current_word = st.session_state.history[-1]
-
-    # Centered large word
-    st.markdown(
-        f"<h1 style='text-align:center; color:darkred; font-size:72px;'> {current_word} </h1>",
-        unsafe_allow_html=True
-    )
-
-    img_path = words_with_images.get(current_word)
-    if img_path and "All words" not in current_word:
-        try:
-            # Create 3 columns, put image in the middle one
-            col1, col2, col3 = st.columns([1,2,1])
-            with col2:
+    # Then show word + image
+    if st.session_state.history:
+        current_word = st.session_state.history[-1]
+        st.markdown(
+            f"<h1 style='text-align:center; color:darkred; font-size:72px;'> {current_word} </h1>",
+            unsafe_allow_html=True
+        )
+        img_path = words_with_images.get(current_word)
+        if img_path and "All words" not in current_word:
+            try:
                 st.image(img_path, width=400)
-        except:
-            st.write("(所有圖案已經顯示 No image available)")
+            except:
+                st.write("(所有圖案已經顯示 No image available)")
 
-
-# --- Display history ---
-st.subheader("History")
-st.markdown(
-    f"<p style='font-size:32px;'> {' → '.join(st.session_state.history)} </p>",
-    unsafe_allow_html=True
-)
+# Right column → Reset button
+with col3:
+    if st.button("Reset Game"):
+        st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
+        st.session_state.index = 0
+        st.session_state.history = []
 
