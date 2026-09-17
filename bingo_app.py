@@ -39,11 +39,17 @@ if "draws" not in st.session_state:
 st.title("主內團圓慶中秋 BINGO")
 
 # --- Buttons ---
+# Create 2 columns, put buttons in the two columns
+
+col1, col2, col3 = st.columns([1,2,1])
+with col1:
+                
 if st.button("Reset Game"):
     st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
     st.session_state.index = 0
     st.session_state.history = []
 
+with col2:
 if st.button("Next Word"):
     if st.session_state.index < len(st.session_state.draws):
         word = st.session_state.draws[st.session_state.index]
