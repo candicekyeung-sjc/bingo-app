@@ -39,7 +39,7 @@ if "draws" not in st.session_state:
 st.title("主內團圓慶中秋 BINGO")
 
 # --- Layout with 4 columns ---
-col1, col2, col3, col4 = st.columns([1,1,3,1])  # left, middle, right
+col1, col2, col3, col4 = st.columns([2,1,4,1])  # left, middle, right
 
 # Left column → History
 with col1:
