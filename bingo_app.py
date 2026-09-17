@@ -50,7 +50,7 @@ with col1:
     )
 
 # Middle column → Next Word button + Current word + image
-with col2:
+with col3:
     # Button first
     if st.button("Next Word"):
         if st.session_state.index < len(st.session_state.draws):
@@ -75,7 +75,7 @@ with col2:
                 st.write("(所有圖案已經顯示 No image available)")
 
 # Right column → Reset button
-with col3:
+with col4:
     if st.button("Reset Game"):
         st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
         st.session_state.index = 0
