@@ -65,11 +65,10 @@ if st.session_state.history:
     img_path = words_with_images.get(current_word)
     if img_path and "All words" not in current_word:
         try:
-            # Centered image
-            st.markdown(
-                f"<div style='text-align:center;'> <img src='{img_path}' width='400'> </div>",
-                unsafe_allow_html=True
-            )
+            # Create 3 columns, put image in the middle one
+            col1, col2, col3 = st.columns([1,2,1])
+            with col2:
+                st.image(img_path, width=400)
         except:
             st.write("(所有圖案已經顯示 No image available)")
 
