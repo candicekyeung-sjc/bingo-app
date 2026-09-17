@@ -36,9 +36,14 @@ if "draws" not in st.session_state:
     st.session_state.index = 0
     st.session_state.history = []
 
-st.title("Catholic Bingo Caller 🎲")
+st.title("主內團圓慶中秋 BINGO")
 
 # --- Buttons ---
+if st.button("Reset Game"):
+    st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
+    st.session_state.index = 0
+    st.session_state.history = []
+
 if st.button("Next Word"):
     if st.session_state.index < len(st.session_state.draws):
         word = st.session_state.draws[st.session_state.index]
@@ -47,11 +52,6 @@ if st.button("Next Word"):
     else:
         st.session_state.history.append("🎉 All words called!")
 
-if st.button("Reset Game"):
-    st.session_state.draws = random.sample(list(words_with_images.keys()), len(words_with_images))
-    st.session_state.index = 0
-    st.session_state.history = []
-
 # --- Display current word ---
 if st.session_state.history:
     current_word = st.session_state.history[-1]
@@ -59,7 +59,7 @@ if st.session_state.history:
     img_path = words_with_images.get(current_word)
     if img_path and "All words" not in current_word:
         try:
-            st.image(Image.open(img_path), width=300)
+            st.image(Image.open(img_path), width=500)
         except:
             st.write("(No image available)")
 
