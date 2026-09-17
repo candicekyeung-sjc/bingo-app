@@ -50,19 +50,34 @@ if st.button("Next Word"):
         st.session_state.history.append(word)
         st.session_state.index += 1
     else:
-        st.session_state.history.append("🎉 All words called!")
+        st.session_state.history.append("🎉 所有圖案已經顯示 All words called!")
 
 # --- Display current word ---
 if st.session_state.history:
     current_word = st.session_state.history[-1]
-    st.header(f"Current Word: {current_word}")
+
+    # Centered large word
+    st.markdown(
+        f"<h1 style='text-align:center; color:darkred; font-size:72px;'> {current_word} </h1>",
+        unsafe_allow_html=True
+    )
+
     img_path = words_with_images.get(current_word)
     if img_path and "All words" not in current_word:
         try:
-            st.image(Image.open(img_path), width=500)
+            # Centered image
+            st.markdown(
+                f"<div style='text-align:center;'> <img src='{img_path}' width='400'> </div>",
+                unsafe_allow_html=True
+            )
         except:
-            st.write("(No image available)")
+            st.write("(所有圖案已經顯示 No image available)")
+
 
 # --- Display history ---
 st.subheader("History")
-st.write(" → ".join(st.session_state.history))
+st.markdown(
+    f"<p style='font-size:32px;'> {' → '.join(st.session_state.history)} </p>",
+    unsafe_allow_html=True
+)
+
