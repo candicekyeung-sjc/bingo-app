@@ -4,30 +4,49 @@ from PIL import Image
 
 # --- Word list with image paths ---
 words_with_images = {
-    "耶穌": "images/jesus.png",
-    "聖母": "images/mary.png",
-    "方舟": "images/ark.png",
-    "十誡": "images/commandments.png",
-    "聖堂": "images/church.png",
-    "祈禱": "images/prayer.png",
-    "聖詠": "images/psalm.png",
-    "伯多祿": "images/peter.png",
-    "聖猶達": "images/jude.png",
-    "五餅二魚": "images/loaves_fishes.png",
-    "復活": "images/resurrection.png",
-    "牧羊人": "images/shepherd.png",
-    "天國": "images/heaven.png",
-    "鴿子": "images/dove.png",
-    "十字架": "images/cross.png",
-    "種子": "images/seed.png",
-    "好撒瑪黎雅人": "images/samaritan.png",
-    "最後晚餐": "images/lastsupper.png",
-    "葡萄樹": "images/vine.png",
-    "彩虹": "images/rainbow.png",
-    "天使": "images/angel.png",
-    "婚宴": "images/wedding.png",
-    "聖經": "images/bible.png",
-    "聖神": "images/holyspirit.png"
+    "輔祭 Altar": "images/altar.png",
+    "St. Andrew": "images/andrew.png",
+    "天使 Angel": "images/angel.png",
+    "St. Anthony": "images/anthony.png",
+    "方舟 Ark": "images/ark.png",
+    "文物室 Artifacts": "images/artifacts.png",
+    "聖經 Bible": "images/bible.png",
+    "茶座 Cafe": "images/cafe.png",
+    "周守仁樞機 Cardinal": "images/cardinal.png",
+    "聖物部 Religious Articles": "images/centre_RA.png",
+    "顯容小堂 Chapel": "images/chapel.png",
+    "歌詠團 Choir": "images/choir.png",
+    "聖堂 Church": "images/church.png",
+    "十誡 Commandments": "images/commandments.png",
+    "十字架 Cross": "images/cross.png",
+    "聖水池 Holy Water": "images/holy_water.png",
+    "聖神 Holy Spirit": "images/holyspirit.png",
+    "St. James the Great": "images/James_the_great.png",
+    "St. James the Less": "images/James_the_less.png",
+    "耶穌 Jesus": "images/jesus.png",
+    "St. John": "images/john.png",
+    "St. Jude": "images/jude.png",
+    "最後晚餐 Last Supper": "images/lastsupper.png",
+    "希望之光 Light of Hope": "images/light_of_hope.png",
+    "五餅二魚 Loaves & Fishes": "images/loaves_fishes.png",
+    "聖母 Our Lady": "images/mary.png",
+    "彌撒中心 Mass Centre": "images/mass_centre.png",
+    "St. Matthew": "images/matthew.png",
+    "St. Paul": "images/paul.png",
+    "St. Peter": "images/peter.png",
+    "St. Philip": "images/philip.png",
+    "教宗 Pope": "images/pope.png",
+    "祈禱 Pray": "images/prayer.png",
+    "彩虹 Rainbow": "images/rainbow.png",
+    "讀經員 Readers": "images/readers.png",
+    "復活 Resurrection": "images/resurrection.png",
+    "團聚 Reunion": "images/reunion.png",
+    "宿霧聖嬰 Santo Nino": "images/santonino.png",
+    "牧羊人 Shepherd": "images/shepherd.png",
+    "St. Simon": "images/simon.png",
+    "紀念品 Souvenir": "images/shepherd.png",
+    "聖猶達堂 St. Jude's Church": "images/stjudeschurch.png",
+    "St. Thomas": "images/thomas.png",
 }
 
 # --- Session state ---
@@ -47,7 +66,7 @@ page_bg = """
 st.markdown(page_bg, unsafe_allow_html=True)
 
 # --- Set page title ---
-st.title("主內團圓慶中秋 BINGO")
+st.title("聖猶達堂慶祝建堂73周年主保瞻禮 BINGO")
 
 # --- Layout with 4 columns ---
 col1, col2, col3, col4 = st.columns([2,1,4,1])  # left, middle, right
@@ -73,7 +92,7 @@ with col3:
             try:
                 st.image(img_path, width=400)
             except:
-                st.write("(所有圖案已經顯示 No image available)")
+                st.write("(遊戲完畢 Game Ended!)")
 
 # Right column → Next Word button
 with col4:
@@ -83,7 +102,7 @@ with col4:
             st.session_state.history.append(word)
             st.session_state.index += 1
         else:
-            st.session_state.history.append("🎉 所有圖案已經顯示 All words called!")
+            st.session_state.history.append("🎉 遊戲完畢 Game Ended!")
 
 # Reset button at the bottom
 
