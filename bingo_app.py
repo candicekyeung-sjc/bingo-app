@@ -84,7 +84,7 @@ with col3:
    if st.session_state.history:
         current_word = st.session_state.history[-1]
         st.markdown(
-            f"<h1 style='text-align:center; color:darkred; font-size:68px;'> {current_word} </h1>",
+            f"<h1 style='text-align:center; color:darkred; font-size:18px;'> {current_word} </h1>",
             unsafe_allow_html=True
         )
         img_path = words_with_images.get(current_word)
