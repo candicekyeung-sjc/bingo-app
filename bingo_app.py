@@ -84,13 +84,13 @@ with col3:
    if st.session_state.history:
         current_word = st.session_state.history[-1]
         st.markdown(
-            f"<h1 style='text-align:center; color:darkred; font-size:18px;'> {current_word} </h1>",
+            f"<h1 style='text-align:center; color:#fcb69f; font-size:18px;'> {current_word} </h1>",
             unsafe_allow_html=True
         )
         img_path = words_with_images.get(current_word)
         if img_path and "All words" not in current_word:
             try:
-                st.image(img_path, width=400)
+                st.image(img_path, width=600)
             except:
                 st.write("(遊戲完畢 Game Ended!)")
 
