@@ -9,7 +9,7 @@ words_with_images = {
     "天使 Angel": "images/angel.png",
     "St. Anthony": "images/anthony.png",
     "方舟 Ark": "images/ark.png",
-    "文物室 Artifacts": "images/artifacts.png",
+    "文物室 Heritage Centre": "images/artifacts.png",
     "聖經 Bible": "images/bible.png",
     "茶座 Cafe": "images/cafe.png",
     "周守仁樞機 Cardinal": "images/cardinal.png",
